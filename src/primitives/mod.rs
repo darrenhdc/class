@@ -40,7 +40,7 @@ pub enum ErrorReason {
 }
 // base 10 numerical log
 //TODO: improve approximation, add source , add tests
-fn numerical_log(x: &BigInt) -> BigInt {
+pub fn numerical_log(x: &BigInt) -> BigInt {
     let mut aip1: BigInt;
     let mut bip1: BigInt;
     let two = BigInt::from(2);
@@ -71,7 +71,7 @@ pub fn hash_to_prime(u: &BinaryQF, w: &BinaryQF) -> BigInt {
     candidate
 }
 
-fn prng(seed: &BigInt, i: usize, bitlen: usize) -> BigInt {
+pub fn prng(seed: &BigInt, i: usize, bitlen: usize) -> BigInt {
     let i_bn = BigInt::from(i as i32);
     let mut res = HMacSha512::create_hmac(&i_bn, &vec![seed]);
     let mut tmp: BigInt = res.clone();
